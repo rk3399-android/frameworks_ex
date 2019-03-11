@@ -66,6 +66,14 @@ public class CameraCapabilities {
     protected float mVerticalViewAngle;
     private final Stringifier mStringifier;
 
+    protected final ArrayList<String> mSupportedColorEffects = new ArrayList<String>();
+    protected final ArrayList<String> mSupportedSaturations = new ArrayList<String>();
+    protected final ArrayList<String> mSupportedContrasts = new ArrayList<String>();
+    protected final ArrayList<String> mSupportedSharpnesses = new ArrayList<String>();
+    protected final ArrayList<String> mSupportedBrightnesses = new ArrayList<String>();
+    protected final ArrayList<String> mSupportedHues = new ArrayList<String>();
+    protected final ArrayList<String> mSupportedAntiBandings = new ArrayList<String>();
+
     /**
      * Focus modes.
      */
@@ -494,6 +502,14 @@ public class CameraCapabilities {
         mHorizontalViewAngle = src.mHorizontalViewAngle;
         mVerticalViewAngle = src.mVerticalViewAngle;
         mStringifier = src.mStringifier;
+
+        mSupportedColorEffects.addAll(src.mSupportedColorEffects);
+        mSupportedSaturations.addAll(src.mSupportedSaturations);
+        mSupportedContrasts.addAll(src.mSupportedContrasts);
+        mSupportedSharpnesses.addAll(src.mSupportedSharpnesses);
+        mSupportedBrightnesses.addAll(src.mSupportedBrightnesses);
+        mSupportedHues.addAll(src.mSupportedHues);
+        mSupportedAntiBandings.addAll(src.mSupportedAntiBandings);
     }
 
     public float getHorizontalViewAngle() {
@@ -674,6 +690,78 @@ public class CameraCapabilities {
      */
     public Stringifier getStringifier() {
         return mStringifier;
+    }
+
+    /**
+     * Gets the supported color effects.
+     *
+     * @return a list of supported color effects. null if color effect
+     *         setting is not supported.
+     * @see #getColorEffect()
+     */
+    public List<String> getSupportedColorEffects() {
+        return new ArrayList<String>(mSupportedColorEffects);
+    }
+
+    /**
+     * Gets the supported saturations.
+     *
+     * @return a list of supported saturations. null if saturation
+     *         setting is not supported.
+     */
+    public List<String> getSupportedSaturations() {
+        return new ArrayList<String>(mSupportedSaturations);
+    }
+
+    /**
+     * Gets the supported contrasts.
+     *
+     * @return a list of supported contrasts. null if contrast
+     *         setting is not supported.
+     */
+    public List<String> getSupportedContrasts() {
+        return new ArrayList<String>(mSupportedContrasts);
+    }
+
+    /**
+     * Gets the supported sharpnesses.
+     *
+     * @return a list of supported sharpnesses. null if sharpness
+     *         setting is not supported.
+     */
+    public List<String> getSupportedSharpnesses() {
+        return new ArrayList<String>(mSupportedSharpnesses);
+    }
+
+    /**
+     * Gets the supported brightnesses.
+     *
+     * @return a list of supported brightnesses. null if brightness
+     *         setting is not supported.
+     */
+    public List<String> getSupportedBrightnesses() {
+        return new ArrayList<String>(mSupportedBrightnesses);
+    }
+
+    /**
+     * Gets the supported hues.
+     *
+     * @return a list of supported hues. null if hue
+     *         setting is not supported.
+     */
+    public List<String> getSupportedHues() {
+        return new ArrayList<String>(mSupportedHues);
+    }
+
+    /**
+     * Gets the supported antibanding values.
+     *
+     * @return a list of supported antibanding values. null if antibanding
+     *         setting is not supported.
+     * @see #getAntibanding()
+     */
+    public List<String> getSupportedAntiBanding() {
+        return new ArrayList<String>(mSupportedAntiBandings);
     }
 
     private boolean zoomCheck(final CameraSettings settings) {
